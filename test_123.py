@@ -2,6 +2,9 @@ from selenium import webdriver
 import time
 import unittest
 
+from selenium.webdriver.common.by import By
+
+
 def is_alert_present(wd):
     try:
         wd.switch_to_alert().text
@@ -20,10 +23,10 @@ class test1(unittest.TestCase):
         wd.get("https://tv.kyivstar.ua")
         wd.maximize_window()
         time.sleep(3)
-        wd.find_element_by_css_selector("body > vd-root > vd-navbar > div.nav > div.nav__btn.nav__search > button").click()
-        wd.find_element_by_css_selector("#cdk-overlay-0 > vd-sidenav-search > div > div.header > form > div > input").send_keys("суперсила")
+        wd.find_element(By.CSS_SELECTOR, "body > vd-root > vd-navbar > div.nav > div.nav__btn.nav__search > button").click()
+        wd.find_element(By.CSS_SELECTOR, "#cdk-overlay-0 > vd-sidenav-search > div > div.header > form > div > input").send_keys("суперсила")
         time.sleep(3)
-        wd.find_element_by_css_selector("#cdk-overlay-0 > vd-sidenav-search > div > div:nth-child(3) > div > div > vd-search-tiles > div > div.tiles-wrapper > div > img").click()
+        wd.find_element(By.CSS_SELECTOR, "#cdk-overlay-0 > vd-sidenav-search > div > div:nth-child(3) > div > div > vd-search-tiles > div > div.tiles-wrapper > div > img").click()
         self.assertTrue(success)
 
     def tearDown(self):
