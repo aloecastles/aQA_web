@@ -22,12 +22,28 @@ class test1(unittest.TestCase):
         wd = self.wd
         self.applicationLaunch(wd)
         self.searchOpen(wd)
-        self.searchQuery(wd)
+        self.searchQuery(wd, Query="суперсила")
         self.firstSearchResultOpen(wd)
         self.VODassetPageBigPlayClick(wd)
         self.loginPagePA_Click(wd)
-        self.loginPagePA_emailFieldType(wd)
-        self.loginPagePA_passwordType(wd)
+        self.loginPagePA_emailFieldType(wd, FTTBlogin="demo_autotest")
+        self.loginPagePA_passwordType(wd, FTTBpassword="123456")
+        self.loginPagePA_loginBittonClick(wd)
+        self.VODplayerVolumeOff(wd)
+        self.VODplayerPauseClick(wd)
+        time.sleep(5)
+
+    def test_test2(self):
+        success = True
+        wd = self.wd
+        self.applicationLaunch(wd)
+        self.searchOpen(wd)
+        self.searchQuery(wd, Query="відеоінструкція")
+        self.firstSearchResultOpen(wd)
+        self.VODassetPageBigPlayClick(wd)
+        self.loginPagePA_Click(wd)
+        self.loginPagePA_emailFieldType(wd, FTTBlogin="demo_autotest")
+        self.loginPagePA_passwordType(wd, FTTBpassword="123456")
         self.loginPagePA_loginBittonClick(wd)
         self.VODplayerVolumeOff(wd)
         self.VODplayerPauseClick(wd)
@@ -47,15 +63,14 @@ class test1(unittest.TestCase):
         wd.find_element(By.CSS_SELECTOR,
                         "#cdk-overlay-1 > vd-login-rightdrawer > div > div > vd-login-rightdrawer-form > vd-tabs > section > div > vd-login-contract-form > div > form > button.btn.btn-primary.btn_login.next-step").click()
 
-    def loginPagePA_passwordType(self, wd):
+    def loginPagePA_passwordType(self, wd, FTTBpassword):
         # login page "Password" field type in
-        wd.find_element(By.CLASS_NAME, "login-input_password").send_keys("123456")
+        wd.find_element(By.CLASS_NAME, "login-input_password").send_keys(FTTBpassword)
 
-    def loginPagePA_emailFieldType(self, wd):
+    def loginPagePA_emailFieldType(self, wd, FTTBlogin):
         # login page "Email or personal account number" field type in
         wd.find_element(By.CSS_SELECTOR,
-                        "#cdk-overlay-1 > vd-login-rightdrawer > div > div > vd-login-rightdrawer-form > vd-tabs > section > div > vd-login-contract-form > div > form > vd-form-field:nth-child(1) > div > div.vd-form-field__field-wrap > input").send_keys(
-            "demo_autotest")
+                        "#cdk-overlay-1 > vd-login-rightdrawer > div > div > vd-login-rightdrawer-form > vd-tabs > section > div > vd-login-contract-form > div > form > vd-form-field:nth-child(1) > div > div.vd-form-field__field-wrap > input").send_keys(FTTBlogin)
 
     def loginPagePA_Click(self, wd):
         # login page personal account button click
@@ -73,11 +88,10 @@ class test1(unittest.TestCase):
         wd.find_element(By.CSS_SELECTOR,
                         "#cdk-overlay-0 > vd-sidenav-search > div > div:nth-child(3) > div > div > vd-search-tiles > div > div.tiles-wrapper > div > img").click()
 
-    def searchQuery(self, wd):
+    def searchQuery(self, wd, Query):
         # search query
         wd.find_element(By.CSS_SELECTOR,
-                        "#cdk-overlay-0 > vd-sidenav-search > div > div.header > form > div > input").send_keys(
-            "суперсила")
+                        "#cdk-overlay-0 > vd-sidenav-search > div > div.header > form > div > input").send_keys(Query)
 
     def searchOpen(self, wd):
         # search button click
