@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 import unittest
-
+from groupFTTBlogin import Group
 
 
 def is_alert_present(wd):
@@ -26,7 +26,7 @@ class test1(unittest.TestCase):
         self.firstSearchResultOpen(wd)
         self.VODassetPageBigPlayClick(wd)
         self.loginPagePA_Click(wd)
-        self.loginPagePA_emailFieldType(wd, FTTBlogin="demo_autotest")
+        self.loginPagePA_emailFieldType(wd, Group(FTTBlogin="demo_autotest"))
         self.loginPagePA_passwordType(wd, FTTBpassword="123456")
         self.loginPagePA_loginBittonClick(wd)
         self.VODplayerVolumeOff(wd)
@@ -42,7 +42,7 @@ class test1(unittest.TestCase):
         self.firstSearchResultOpen(wd)
         self.VODassetPageBigPlayClick(wd)
         self.loginPagePA_Click(wd)
-        self.loginPagePA_emailFieldType(wd, FTTBlogin="demo_autotest")
+        self.loginPagePA_emailFieldType(wd, Group(FTTBlogin="demo_autotest"))
         self.loginPagePA_passwordType(wd, FTTBpassword="123456")
         self.loginPagePA_loginBittonClick(wd)
         self.VODplayerVolumeOff(wd)
@@ -67,10 +67,10 @@ class test1(unittest.TestCase):
         # login page "Password" field type in
         wd.find_element(By.CLASS_NAME, "login-input_password").send_keys(FTTBpassword)
 
-    def loginPagePA_emailFieldType(self, wd, FTTBlogin):
+    def loginPagePA_emailFieldType(self, wd, group):
         # login page "Email or personal account number" field type in
         wd.find_element(By.CSS_SELECTOR,
-                        "#cdk-overlay-1 > vd-login-rightdrawer > div > div > vd-login-rightdrawer-form > vd-tabs > section > div > vd-login-contract-form > div > form > vd-form-field:nth-child(1) > div > div.vd-form-field__field-wrap > input").send_keys(FTTBlogin)
+                        "#cdk-overlay-1 > vd-login-rightdrawer > div > div > vd-login-rightdrawer-form > vd-tabs > section > div > vd-login-contract-form > div > form > vd-form-field:nth-child(1) > div > div.vd-form-field__field-wrap > input").send_keys(group.FTTBlogin)
 
     def loginPagePA_Click(self, wd):
         # login page personal account button click
