@@ -1,7 +1,7 @@
 import time
 import pytest
-from groupFTTBlogin import Group
-from application import Application
+from model.groupFTTBlogin import Group
+from fixture.application import Application
 
 
 @pytest.fixture
