@@ -1,13 +1,14 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
-
+from fixture.session import SessionHelper
 
 class Application:
 
     def __init__(self):
         self.wd = webdriver.Chrome()
         self.wd.implicitly_wait(60)
+        self.session = SessionHelper(self)
 
     def VODplayerPauseClick(self):
         wd = self.wd
@@ -20,28 +21,7 @@ class Application:
         # opened VOD page volume off in player
         wd.find_element(By.CLASS_NAME, "icon-volume").click()
 
-    def loginPagePA_loginBittonClick(self):
-        wd = self.wd
-        # login page "login" button click
-        wd.find_element(By.CSS_SELECTOR,
-                        "#cdk-overlay-1 > vd-login-rightdrawer > div > div > vd-login-rightdrawer-form > vd-tabs > section > div > vd-login-contract-form > div > form > button.btn.btn-primary.btn_login.next-step").click()
 
-    def loginPagePA_passwordType(self, FTTBpassword):
-        wd = self.wd
-        # login page "Password" field type in
-        wd.find_element(By.CLASS_NAME, "login-input_password").send_keys(FTTBpassword)
-
-    def loginPagePA_emailFieldType(self, group):
-        wd = self.wd
-        # login page "Email or personal account number" field type in
-        wd.find_element(By.CSS_SELECTOR,
-                        "#cdk-overlay-1 > vd-login-rightdrawer > div > div > vd-login-rightdrawer-form > vd-tabs > section > div > vd-login-contract-form > div > form > vd-form-field:nth-child(1) > div > div.vd-form-field__field-wrap > input").send_keys(group.FTTBlogin)
-
-    def loginPagePA_Click(self):
-        wd = self.wd
-        # login page personal account button click
-        wd.find_element(By.CSS_SELECTOR,
-                        "#cdk-overlay-1 > vd-login-rightdrawer > div > div > vd-login-rightdrawer-form > vd-tabs > div > div:nth-child(2)").click()
 
     def VODassetPageBigPlayClick(self):
         wd = self.wd

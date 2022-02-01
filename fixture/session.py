@@ -1,0 +1,36 @@
+from selenium.webdriver.common.by import By
+
+class SessionHelper:
+    def __init__(self, app):
+        self.app = app
+
+    def loginPagePA_loginBittonClick(self):
+        wd = self.app.wd
+        # login page "login" button click
+        wd.find_element(By.CSS_SELECTOR,
+                        "#cdk-overlay-1 > vd-login-rightdrawer > div > div > vd-login-rightdrawer-form > vd-tabs > section > div > vd-login-contract-form > div > form > button.btn.btn-primary.btn_login.next-step").click()
+
+    def loginPagePA_passwordType(self, FTTBpassword):
+        wd = self.app.wd
+        # login page "Password" field type in
+        wd.find_element(By.CLASS_NAME, "login-input_password").send_keys(FTTBpassword)
+
+    def loginPagePA_emailFieldType(self, group):
+        wd = self.app.wd
+        # login page "Email or personal account number" field type in
+        wd.find_element(By.CSS_SELECTOR,
+                        "#cdk-overlay-1 > vd-login-rightdrawer > div > div > vd-login-rightdrawer-form > vd-tabs > section > div > vd-login-contract-form > div > form > vd-form-field:nth-child(1) > div > div.vd-form-field__field-wrap > input").send_keys(group.FTTBlogin)
+
+    def loginPagePA_Click(self):
+        wd = self.app.wd
+        # login page personal account button click
+        wd.find_element(By.CSS_SELECTOR,
+                        "#cdk-overlay-1 > vd-login-rightdrawer > div > div > vd-login-rightdrawer-form > vd-tabs > div > div:nth-child(2)").click()
+
+    def profileOpen(self):
+        wd = self.app.wd
+        wd.find_element(By.CLASS_NAME, "profile-link").click()
+
+    def profileLogout(self):
+        wd = self.app.wd
+        wd.find_element(By.CSS_SELECTOR, "body > vd-root > div > vd-new-account > div > nav > vd-profile-menu > ul > li:nth-child(6)").click()
