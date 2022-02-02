@@ -16,5 +16,5 @@ def test_loginAndRename(app):
     app.session.profileOpen()
     app.profile.firstNameChangeAdd(firstName="2")
     app.profile.buttonSaveClick()
-    # app.session.profileLogout()
+    app.session.profileLogout()
     time.sleep(5)
