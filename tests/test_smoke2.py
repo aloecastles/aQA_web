@@ -1,7 +1,7 @@
 import time
 from model.groupFTTBlogin import Group
 
-def test_loginAndRename(app):
+def test_loginAndRenameRevert(app):
     app.applicationLaunch()
     app.searchOpen()
     app.searchQuery(Query="суперсила")
@@ -14,7 +14,8 @@ def test_loginAndRename(app):
     app.VODplayer.VolumeOff()
     app.VODplayer.PauseClick()
     app.session.profileOpen()
-    app.profile.firstNameChangeAdd(firstName="2")
+    app.profile.firstNameClear()
+    app.profile.firstNameChangeAdd(firstName="demo_autotest")
     app.profile.buttonSaveClick()
-    # app.session.profileLogout()
     time.sleep(5)
+    app.session.profileLogout()
