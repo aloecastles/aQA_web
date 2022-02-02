@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 import time
 from fixture.session import SessionHelper
 from fixture.VODplayer import VODplayerHelper
+from fixture.profile import ProfileHelper
 
 class Application:
 
@@ -11,6 +12,7 @@ class Application:
         self.wd.implicitly_wait(60)
         self.session = SessionHelper(self)
         self.VODplayer = VODplayerHelper(self)
+        self.profile = ProfileHelper(self)
 
 
     def firstSearchResultOpen(self):
