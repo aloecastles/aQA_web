@@ -23,5 +23,6 @@ def test_login(app):
     app.VODplayer.VolumeOff()
     app.VODplayer.PauseClick()
     app.session.profileOpen()
-    app.session.profileLogout()
+    app.profile.firstNameChange(firstName="2")
+    # app.session.profileLogout()
     time.sleep(5)
