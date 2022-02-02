@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 from fixture.session import SessionHelper
+from fixture.VODplayer import VODplayerHelper
 
 class Application:
 
@@ -9,25 +10,8 @@ class Application:
         self.wd = webdriver.Chrome()
         self.wd.implicitly_wait(60)
         self.session = SessionHelper(self)
+        self.VODplayer = VODplayerHelper(self)
 
-    def VODplayerPauseClick(self):
-        wd = self.wd
-        # opened VOD page pause(\play) click
-        time.sleep(1)
-        wd.find_element(By.CLASS_NAME, "btn-play").click()
-
-    def VODplayerVolumeOff(self):
-        wd = self.wd
-        # opened VOD page volume off in player
-        wd.find_element(By.CLASS_NAME, "icon-volume").click()
-
-
-
-    def VODassetPageBigPlayClick(self):
-        wd = self.wd
-        # opened VOD page big play button click
-        wd.find_element(By.CSS_SELECTOR,
-                        "body > vd-root > div > vd-details-page > vd-vod > div.asset.ng-star-inserted > div > div > div.actions > button").click()
 
     def firstSearchResultOpen(self):
         wd = self.wd
