@@ -1,6 +1,6 @@
 
 class GroupPD:
-    def __init__(self, FirstName):
-        # self.Email = Email
+    def __init__(self, Email=None, LastName=None,FirstName=None ):
+        self.Email = Email
         self.FirstName = FirstName
-       # self.LastName = LastName
+        self.LastName = LastName
