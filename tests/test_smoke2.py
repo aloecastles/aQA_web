@@ -1,5 +1,5 @@
 import time
-from model.groupFTTBlogin import Group
+from model.groupFTTBlogin import GroupLogin
 
 def test_loginAndRenameRevert(app):
     app.applicationLaunch()
@@ -8,7 +8,7 @@ def test_loginAndRenameRevert(app):
     app.firstSearchResultOpen()
     app.VODplayer.CenterButtonPlayClick()
     app.session.loginPagePA_Click()
-    app.session.loginPagePA_emailFieldType(Group(FTTBlogin="demo_autotest"))
+    app.session.loginPagePA_emailFieldType(GroupLogin(FTTBlogin="demo_autotest"))
     app.session.loginPagePA_passwordType(FTTBpassword="123456")
     app.session.loginPagePA_loginBittonClick()
     app.VODplayer.VolumeOff()
