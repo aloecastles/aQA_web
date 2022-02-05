@@ -38,7 +38,7 @@ class Application:
     def applicationLaunch(self):
         wd = self.wd
         # app open
-        wd.get("https://tv.kyivstar.ua")
+        wd.get("https://tv.kyivstar.ua/en")
         wd.maximize_window()
 
     def destroy(self):

@@ -1,21 +1,15 @@
 import time
 from model.groupFTTBlogin import GroupLogin
+from model.groupPersonalData import GroupPD
 
-def test_loginAndRenameRevert(app):
+def test_applicationLaunch(app):
     app.applicationLaunch()
-    app.searchOpen()
-    app.searchQuery(Query="суперсила")
-    app.firstSearchResultOpen()
-    app.VODplayer.CenterButtonPlayClick()
-    app.session.loginPagePA_Click()
-    app.session.loginPagePA_emailFieldType(GroupLogin(FTTBlogin="demo_autotest"))
-    app.session.loginPagePA_passwordType(FTTBpassword="123456")
-    app.session.loginPagePA_loginBittonClick()
-    app.VODplayer.VolumeOff()
-    app.VODplayer.PauseClick()
-    app.session.profileOpen()
-    app.profile.firstNameClear()
-    app.profile.firstNameChangeAdd(firstName="demo_autotest")
-    app.profile.buttonSaveClick()
-    time.sleep(5)
-    app.session.profileLogout()
+def test_sessionProfileOpen(app):
+    app.session.signInOpen()
+def test_loginPageFromHome_PA_Click(app):
+    app.session.signInOpen()
+    app.session.loginPageFromHome_PA_Click()
+
+    # app.session.loginPageFromHomePA_emailFieldType(GroupLogin(FTTBlogin="demo_autotest"))
+    # app.session.loginPagePA_passwordType(GroupLogin(FTTBpassword="123456"))
+    # app.session.loginPagePA_loginBittonClick()
