@@ -14,6 +14,13 @@ class Application:
         self.VODplayer = VODplayerHelper(self)
         self.profile = ProfileHelper(self)
 
+    def is_valid(self):
+        try:
+            self.wd.current_url
+            return True
+        except:
+            return False
+
 
     def firstSearchResultOpen(self):
         wd = self.wd
