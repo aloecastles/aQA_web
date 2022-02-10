@@ -55,3 +55,8 @@ class SessionHelper:
         wd = self.app.wd
         wd.find_element(By.CLASS_NAME, "profile-link").click()
         wd.find_element(By.CSS_SELECTOR, "body > vd-root > div > vd-new-account > div > nav > vd-profile-menu > ul > li:nth-child(6)").click()
+
+    def ensure_Logout(self):
+        wd = self.app.wd
+        if len(wd.find_elements(By.LINK_TEXT,"Sign Out")) > 0:
+            self.profileLogoutClick()

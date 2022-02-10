@@ -11,6 +11,6 @@ def test_loginPageFromHome_PA_Click(app):
     app.session.loginPageFromHomePA_emailFieldType(GroupLogin(FTTBlogin="demo_autotest"))
     app.session.loginPagePA_passwordType(GroupLogin(FTTBpassword="123456"))
     app.session.loginPagePAfromHome_loginButtonClick()
-    # app.session.profileOpen()
+    app.session.profileOpen()
     # app.session.profileLogoutClick()
     time.sleep(2)

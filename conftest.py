@@ -20,7 +20,7 @@ def app(request):
 def stop(request):
     def fin():
         # fixture.applicationLaunch()
-        fixture.session.profileLogoutClick()
+        fixture.session.ensure_Logout()
         fixture.destroy()
     request.addfinalizer(fin)
     return fixture
