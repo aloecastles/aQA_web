@@ -4,11 +4,15 @@ class SessionHelper:
     def __init__(self, app):
         self.app = app
 
-    def loginPagePA_loginBittonClick(self):
+    def loginPagePAfromVOD_loginButtonClick(self):
         wd = self.app.wd
         # login page "login" button click
-        wd.find_element(By.CSS_SELECTOR,
-                        "#cdk-overlay-1 > vd-login-rightdrawer > div > div > vd-login-rightdrawer-form > vd-tabs > section > div > vd-login-contract-form > div > form > button.btn.btn-primary.btn_login.next-step").click()
+        wd.find_element(By.CSS_SELECTOR, "#cdk-overlay-1 > vd-login-rightdrawer > div > div > vd-login-rightdrawer-form > vd-tabs > section > div > vd-login-contract-form > div > form > button.btn.btn-primary.btn_login.next-step").click()
+
+    def loginPagePAfromHome_loginButtonClick(self):
+        wd = self.app.wd
+        # login page "login" button click
+        wd.find_element(By.CSS_SELECTOR, "#cdk-overlay-0 > vd-login-rightdrawer > div > div > vd-login-rightdrawer-form > vd-tabs > section > div > vd-login-contract-form > div > form > button.btn.btn-primary.btn_login.next-step").click()
 
     def loginPagePA_passwordType(self, group):
         wd = self.app.wd
@@ -47,6 +51,7 @@ class SessionHelper:
         wd = self.app.wd
         wd.find_element(By.CLASS_NAME, "btn_login").click()
 
-    def profileLogout(self):
+    def profileLogoutClick(self):
         wd = self.app.wd
+        wd.find_element(By.CLASS_NAME, "profile-link").click()
         wd.find_element(By.CSS_SELECTOR, "body > vd-root > div > vd-new-account > div > nav > vd-profile-menu > ul > li:nth-child(6)").click()

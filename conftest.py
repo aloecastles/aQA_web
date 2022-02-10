@@ -19,7 +19,8 @@ def app(request):
 @pytest.fixture(scope="session", autouse=True)
 def stop(request):
     def fin():
-        fixture.applicationLaunch()
+        # fixture.applicationLaunch()
+        fixture.session.profileLogoutClick()
         fixture.destroy()
     request.addfinalizer(fin)
     return fixture

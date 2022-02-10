@@ -12,7 +12,7 @@ def test_searchOpen(app):
     app.session.loginPageFromVOD_PA_Click()
     app.session.loginPageFromVodPA_emailFieldType(GroupLogin(FTTBlogin="demo_autotest"))
     app.session.loginPagePA_passwordType(GroupLogin(FTTBpassword="123456"))
-    app.session.loginPagePA_loginBittonClick()
+    app.session.loginPagePAfromVOD_loginButtonClick()
     app.VODplayer.VolumeOff()
     app.VODplayer.PauseClick()
     app.session.profileOpen()
@@ -22,5 +22,5 @@ def test_searchOpen(app):
     time.sleep(4)
     # app.profile.buttonSaveClick()
     time.sleep(1)
-    app.session.profileLogout()
+    # app.session.profileLogoutClick()
 
