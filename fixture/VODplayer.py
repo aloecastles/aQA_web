@@ -21,5 +21,5 @@ class VODplayerHelper:
     def CenterButtonPlayClick(self):
         wd = self.app.wd
         # opened VOD page big play button click
-        wd.find_element(By.CSS_SELECTOR,
-                        "body > vd-root > div > vd-details-page > vd-vod > div.asset.ng-star-inserted > div > div > div.actions > button").click()
+        wd.find_element(By.CLASS_NAME,"btn-accent").click()
+        # wd.find_element(By.CSS_SELECTOR,"body > vd-root > div > vd-details-page > vd-vod > div.asset.ng-star-inserted > div > div > div.actions > button").click()

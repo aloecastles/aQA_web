@@ -27,20 +27,20 @@ class Application:
         # open first search result in 1st row
         time.sleep(3)
         wd.find_element(By.CSS_SELECTOR,
-                        "#cdk-overlay-0 > vd-sidenav-search > div > div:nth-child(3) > div > div > vd-search-tiles > div > div.tiles-wrapper > div > img").click()
+                        "#cdk-overlay-1 > vd-sidenav-search > div > div:nth-child(3) > div > div > vd-search-tiles > div > div.tiles-wrapper > div > img").click()
 
     def searchQuery(self, Query):
         wd = self.wd
         # search query
         wd.find_element(By.CSS_SELECTOR,
-                        "#cdk-overlay-0 > vd-sidenav-search > div > div.header > form > div > input").send_keys(Query)
+                        "#cdk-overlay-1 > vd-sidenav-search > div > div.header > form > div > input").send_keys(Query)
 
     def searchOpen(self):
         wd = self.wd
         # search button click
-        time.sleep(3)
-        wd.find_element(By.CSS_SELECTOR,
-                        "body > vd-root > vd-navbar > div.nav > div.nav__btn.nav__search > button").click()
+        time.sleep(1)
+        wd.find_element(By.CLASS_NAME, "icon-search-thin").click()
+        # wd.find_element(By.CSS_SELECTOR,"body > vd-root > vd-navbar > div.nav > div.nav__btn.nav__search > button").click()
 
     def applicationLaunch(self):
         wd = self.wd

@@ -12,7 +12,8 @@ class SessionHelper:
     def loginPagePAfromHome_loginButtonClick(self):
         wd = self.app.wd
         # login page "login" button click
-        wd.find_element(By.CSS_SELECTOR, "#cdk-overlay-0 > vd-login-rightdrawer > div > div > vd-login-rightdrawer-form > vd-tabs > section > div > vd-login-contract-form > div > form > button.btn.btn-primary.btn_login.next-step").click()
+        wd.find_element(By.CLASS_NAME, "next-step").click()
+        # wd.find_element(By.CSS_SELECTOR, "#cdk-overlay-0 > vd-login-rightdrawer > div > div > vd-login-rightdrawer-form > vd-tabs > section > div > vd-login-contract-form > div > form > button.btn.btn-primary.btn_login.next-step").click()
 
     def loginPagePA_passwordType(self, group):
         wd = self.app.wd
