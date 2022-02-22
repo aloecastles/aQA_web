@@ -9,9 +9,9 @@ def test_sessionProfileOpen(app):
 def test_loginPageFromHome_PA_Click(app):
     app.session.loginPageFromHome_PA_Click()
 def test_4(app):
-    app.session.loginPageFromHomePA_emailFieldType(GroupLogin(FTTBlogin="demo_autotest"))
+    app.session.loginPageFromHomePA_emailFieldType(GroupLogin(FTTBlogin="XXX"))
 def test_5(app):
-    app.session.loginPagePA_passwordType(GroupLogin(FTTBpassword="123456"))
+    app.session.loginPagePA_passwordType(GroupLogin(FTTBpassword="XXX"))
 def test_6(app):
     app.session.loginPagePAfromHome_loginButtonClick()
 def test_7(app):
