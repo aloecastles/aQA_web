@@ -61,3 +61,13 @@ class SessionHelper:
         wd = self.app.wd
         if len(wd.find_elements(By.LINK_TEXT,"Sign Out")) > 0:
             self.profileLogoutClick()
+
+    def loginFromHomePAcompilation(self, group):
+        wd = self.app.wd
+        wd.find_element(By.CLASS_NAME, "btn_login").click()
+        wd.find_element(By.CSS_SELECTOR, "#cdk-overlay-0 > vd-login-rightdrawer > div > div > vd-login-rightdrawer-form > vd-tabs > div > div:nth-child(2) > button").click()
+        if group.FTTBlogin is not None:
+            wd.find_element(By.CSS_SELECTOR, "#cdk-overlay-0 > vd-login-rightdrawer > div > div > vd-login-rightdrawer-form > vd-tabs > section > div > vd-login-contract-form > div > form > vd-form-field:nth-child(1) > div > div.vd-form-field__field-wrap > input").send_keys(group.FTTBlogin)
+        if group.FTTBpassword is not None:
+            wd.find_element(By.CLASS_NAME, "login-input_password").send_keys(group.FTTBpassword)
+        wd.find_element(By.CLASS_NAME, "next-step").click()

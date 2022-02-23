@@ -2,18 +2,20 @@ import time
 from model.groupFTTBlogin import GroupLogin
 from model.groupPersonalData import GroupPD
 
-def test_applicationLaunch(app):
-    app.applicationLaunch()
-def test_sessionProfileOpen(app):
-    app.session.signInOpen()
-def test_loginPageFromHome_PA_Click(app):
-    app.session.loginPageFromHome_PA_Click()
-def test_4(app):
-    app.session.loginPageFromHomePA_emailFieldType(GroupLogin(FTTBlogin="XXX"))
-def test_5(app):
-    app.session.loginPagePA_passwordType(GroupLogin(FTTBpassword="XXX"))
-def test_6(app):
-    app.session.loginPagePAfromHome_loginButtonClick()
+# def test_applicationLaunch(app):
+#     app.applicationLaunch()
+# def test_sessionProfileOpen(app):
+#     app.session.signInOpen()
+# def test_loginPageFromHome_PA_Click(app):
+#     app.session.loginPageFromHome_PA_Click()
+# def test_4(app):
+#     app.session.loginPageFromHomePA_emailFieldType(GroupLogin(FTTBlogin="demo_autotest"))
+# def test_5(app):
+#     app.session.loginPagePA_passwordType(GroupLogin(FTTBpassword="123456"))
+# def test_6(app):
+#     app.session.loginPagePAfromHome_loginButtonClick()
+def test_1(app):
+    app.session.loginFromHomePAcompilation(GroupLogin(FTTBlogin="demo_autotest",FTTBpassword="123456"))
 def test_7(app):
     app.searchOpen()
 def test_8(app):
